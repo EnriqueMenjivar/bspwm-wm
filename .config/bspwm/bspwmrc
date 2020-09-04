@@ -1,0 +1,42 @@
+#! /bin/sh
+
+sxhkd &
+~/.config/polybar/launch.sh &
+picom --config /home/enrique/.config/picom/picom.conf &
+#compton --config /home/enrique/.config/picom/picom.conf &
+#wmname LG3D &
+bspc config pointer_modifier mod1
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap           4
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focused_border_color    \#bf00f6
+bspc config active_border_color	    \#bf00f6
+bspc config normal_border_color	    \#00DCF6
+bspc config presel_feedback_color   \#bf00f6
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a eclipse state=floating follow=on
+bspc rule -a MEGAsync state=floating follow=on
+bspc rule -a vokoscreenNG state=floating follow=on
+
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+feh --bg-fill /home/enrique/Pictures/Linux-wallpaper/caminante-blanco.jpg &
+
+xsetroot -cursor_name left_ptr &
+setxkbmap -layout us -variant altgr-intl &
+#setxkbmap -option grp:alt_shift_toggle us,es &
+
+redshift -P -O 4500 &
+#alsactl restore
+megasync &
+setxkbmap -option "numpad:microsoft"

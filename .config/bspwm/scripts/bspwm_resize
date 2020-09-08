@@ -1,12 +1,6 @@
 #!/usr/bin/bash
 
-
-#Si la ventana flotante está activa
-if bspc query -N -n focused.floating > /dev/null; then
-	step=20
-else
-	step=100
-fi
+step=10
 
 case "$1" in
 	west) dir=right; falldir=left; x="-$step"; y=0;;

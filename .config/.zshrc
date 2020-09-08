@@ -37,6 +37,7 @@ funciton update_bspwm_files(){
 	cp -r ~/.config/polybar/ $repo_path
 	cp -r ~/.config/sxhkd $repo_path
 	cp ~/.zshrc $repo_path
+	cp ~/.p10k.zsh $repo_path
 	echo "[*] Hecho"
 }
 

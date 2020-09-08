@@ -32,11 +32,26 @@ bspc rule -a Screenkey manage=off
 
 feh --bg-fill /home/enrique/Pictures/Linux-wallpaper/caminante-blanco.jpg &
 
-xsetroot -cursor_name left_ptr &
-setxkbmap -layout us -variant altgr-intl &
-#setxkbmap -option grp:alt_shift_toggle us,es &
+#----------------------------------------------------------------------
+#CUSTOM
+#----------------------------------------------------------------------
 
+#Evitar que el puntero se ponga en forma de x
+xsetroot -cursor_name left_ptr &
+
+#Iniciar redshoft
 redshift -P -O 4500 &
-#alsactl restore
+
+#Iniciar mega
 megasync &
+
+#Activar el numpad para usar las flechas y funciones
 setxkbmap -option "numpad:microsoft"
+
+#Establecer el teclado en ingles internacional con dead keys
+setxkbmap -layout us -variant altgr-intl &
+
+
+
+#setxkbmap -option grp:alt_shift_toggle us,es &
+#alsactl restore

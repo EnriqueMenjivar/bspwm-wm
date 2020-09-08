@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #Autor: Enrique Menjívar
-#Dependencies: yay
 
 #Colours
 greenColour="\e[0;32m\033[1m"
@@ -28,7 +27,6 @@ function bspwm_installing_packeges(){
 	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Instalando bspwm...${endColour}"
 	sudo pacman -S bspwm sxhkd --noconfirm > /dev/null 2>&1
 	
-#	sudo pacman -S sxhkd --noconfirm > /dev/null 2>&1
 #	sudo pacman -S terminus-font --noconfirm > /dev/null 2>&1
 #	sudo pacman -S xorg-xset --noconfirm > /dev/null 2>&1
 
@@ -55,7 +53,6 @@ function bspwm_installing_packeges(){
 	#rofi es un paquete que ayuda a busar aplicaciones por medio de un menú
 	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Instalando rofi...${endColour}"
 	sudo pacman -S rofi --noconfirm > /dev/null 2>&1
-
 }
 
 function bspwm_init_configuration(){
@@ -96,21 +93,22 @@ function bspwm_polybar(){
 
 	#Verficar que yay este instalado
 	test -f /usr/bin/yay
-	if [ "$(echo $?)" != "0" ]; then
-		echo -e "\n${redColour}[!]${endColour}${redColour} No se encontró yay${endColour}"
-		exit 0;
-	if
+	if [ "$(echo $?)" == "0" ]; then
+        
+        #Instalación de la polybar
+        echo -e "\n${yellowColour}[*]${endColour}${grayColour} Descargando polybar${endColour}"
+        yay -S polybar
+        #yay -S --noconfirm polybar
 
-	#Descarga repositorio de polybar
-	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Descargando polybar${endColour}"
-	yay -S polybar
-#	yay -S --noconfirm polybar
+        cp /usr/share/doc/polybar/config /home/$USER/.config/polybar
+        cd /home/$USER/.config/polybar
+        chown $USER:$USER -R *
 
-	cp /usr/share/doc/polybar/config /home/$USER/.config/polybar
-	cd /home/$USER/.config/polybar
-	chown $USER:$USER -R *
-
-	sed -i "/sxhkd &/a  ~/.config/polybar/launch.sh &" ~/.config/bspwm/bspwmrc
+        sed -i "/sxhkd &/a  ~/.config/polybar/launch.sh &" ~/.config/bspwm/bspwmrc
+	else
+        echo -e "\n${redColour}[!]${endColour}${redColour} No fue posible instalar la polybar debido a que no se encontró yay${endColour}"
+        sleep 2
+	fi
 }
 
 function bspwm_fonts(){
@@ -212,6 +210,11 @@ echo -e "${blueColour}
 ;
 ======================================================
 ${endColour}"
+test -f /usr/bin/yay
+if [ "$(echo $?)" != "0" ]; then
+    echo -e " ${redColour}[!] yay no se encuentra instalado, por lo tanto no será posible instalar la polybar${endColour}"
+fi
+
 echo -ne "\n${yellowColour}[*]${endColour}${grayColour} Elija una opción: ${endColour}" && read v_option
 
 case $v_option in

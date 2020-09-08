@@ -20,11 +20,24 @@ HISTFILE=~/.zsh_history
 
 # Functions
 
+#Guardar comandos en un archivo
 function mkc(){
     dir=/home/enrique/MEGAsync/Commands/commands.txt
     echo -ne "Command: " && read -r command
     echo -ne "Comment: " && read -r comment
     echo "$command    //$comment" >> $dir
+}
+
+#Actualizar cambios en los archivos de configuración de bspwm
+funciton update_bspwm_files(){
+	repo_path=~/Documents/github/linux/bspwm-wm/.config/
+	cp -r ~/.config/alacritty/ $repo_path
+	cp -r ~/.config/bspwm $repo_path
+	cp -r ~/.config/picom $repo_path
+	cp -r ~/.config/polybar/ $repo_path
+	cp -r ~/.config/sxhkd $repo_path
+	cp ~/.zshrc $repo_path
+	echo "[*] Hecho"
 }
 
 # create a zkbd compatible hash;

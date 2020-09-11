@@ -175,6 +175,10 @@ super + l
 Print
 	flameshot gui &
 
+# take full screenshot
+shift + Print
+	flameshot full -p ~/Pictures/screenshots &
+
 # switch keyboard
 ctrl + alt + k
 	{setxkbmap -layout us -variant altgr-intl, setxkbmap -layout es} &

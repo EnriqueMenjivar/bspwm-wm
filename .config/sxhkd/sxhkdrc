@@ -162,7 +162,7 @@ alt + {_,shift + }Tab
 alt + {_,shift + }F4
     bspc node -{c,k}
 
-# close and kill
+# view open windows
 super + w
 	/home/enrique/.config/bspwm/scripts/change_windows.sh &
 #	/home/enrique/.config/polybar/scripts/windows &

@@ -23,9 +23,10 @@ bspc config presel_feedback_color   \#bf00f6
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 #bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
-bspc rule -a eclipse state=floating follow=on
+#bspc rule -a eclipse state=floating follow=on
 bspc rule -a MEGAsync state=floating follow=on
 bspc rule -a vokoscreenNG state=floating follow=on
+bspc rule -a Java state=floating follow=on
 
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off

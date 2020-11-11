@@ -15,8 +15,17 @@ alias ls='lsd --group-dirs=first'
 alias cat='/usr/bin/bat --paging=never'
 alias less='/usr/bin/bat'
 
+# History configuration
+HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+HISTTIMEFORMAT="[%F %T] "
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt INC_APPEND_HISTORY #Agrega el comando inmediatamente al historial (sin que se temrine de ejecutar)
+setopt EXTENDED_HISTORY #Agrega el tiempo a cada comando del historial
+setopt HIST_FIND_NO_DUPS #Elimina los duplicado al buscar en el historial (ctrl + r)
+#setopt HIST_IGNORE_ALL_DUPS #No agrega los comandos duplicadps al historial
+#export HISTORY_IGNORE="(ls|cat|AWS|SECRET)" #Comandos que no se guardaran en el historial
 
 # Functions
 
@@ -61,7 +70,7 @@ function mkc(){
     dir=/home/enrique/MEGAsync/Commands/commands.txt
     echo -ne "Command: " && read -r command
     echo -ne "Comment: " && read -r comment
-    echo "$command    //$comment" >> $dir
+    echo -e "\n#//$comment\n$command" >> $dir
 }
 
 #Actualizar cambios en los archivos de configuración de bspwm

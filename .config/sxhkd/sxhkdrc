@@ -206,7 +206,7 @@ ctrl + alt + Delete
 super + {_,shift + }r
 	bspc node @/ --rotate {90,-90}
 	
-# change window gap
+# change window gap (button 4/5 = scroll down/up)
 super + button{4,5}
 	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 2 ))
 
@@ -223,3 +223,8 @@ super + shift + {KP_Add,KP_Subtract}
 
 super + shift + {plus,minus}
         /home/enrique/.config/bspwm/scripts/inactive_opacity.sh {+,-}
+
+# Find cursor (button3 = right clic)
+ctrl + button3
+	find-cursor --size 300 --distance 40 --wait 400 --line-width 2 --color black
+

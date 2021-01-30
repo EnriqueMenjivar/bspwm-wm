@@ -32,6 +32,7 @@ function bspwm_installing_packeges(){
 	apt-get install libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev -y > /dev/null 2>&1
 	apt-get install build-essential -y > /dev/null 2>&1
 	apt-get install make -y > /dev/null 2>&1
+	apt-get install cmake -y > /dev/null 2>&1
 
 	git clone https://github.com/baskerville/bspwm.git > /dev/null 2>&1
 	git clone https://github.com/baskerville/sxhkd.git > /dev/null 2>&1
@@ -94,19 +95,18 @@ function bspwm_init_configuration(){
 	#Agregando configuración de compton en el archivo bspwmec
 	su $v_user -c 'sed -i "/sxhkd &/a compton --config /home/$USER/.config/compton/compton.conf &" ~/.config/bspwm/bspwmrc'
 
-	
 	#Copiando archivos
-	su $v_user -c 'cp bspwm_resize ~/.config/bspwm/scripts/'
-	su $v_user -c 'cp compton.conf ~/.config/compton/'
-	su $v_user -c 'cp launch.sh ~/.config/polybar/'
+	##su $v_user -c 'cp bspwm_resize ~/.config/bspwm/scripts/'
+	##su $v_user -c 'cp compton.conf ~/.config/compton/'
+	##su $v_user -c 'cp launch.sh ~/.config/polybar/'
 }
 
 function bspwm_polybar(){
 	#Dependecnias del polybar
 	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Instalando dependencias del polybar...${endColour}"
-	wget http://ftp.us.debian.org/debian/pool/main/x/xcb-proto/python3-xcbgen_1.14-2_all.deb > /dev/null 2>&1
-	dpkg -i python3-xcbgen_1.14-2_all.deb > /dev/null 2>&1
-	rm python3-xcbgen_1.14-2_all.deb
+	wget http://ftp.us.debian.org/debian/pool/main/x/xcb-proto/python3-xcbgen_1.14.1-1_all.deb > /dev/null 2>&1
+	dpkg -i python3-xcbgen_1.14.1-1_all.deb > /dev/null 2>&1
+	
 	apt install build-essential git cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev -y > /dev/null 2>&1
 	apt install libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y > /dev/null 2>&1
 	
@@ -115,7 +115,9 @@ function bspwm_polybar(){
 	cd /opt
 	wget https://github.com/jaagr/polybar/releases/download/3.4.0/polybar-3.4.0.tar > /dev/null 2>&1
 	tar -xf polybar-3.4.0.tar
+	
 	rm polybar-3.4.0.tar
+	rm python3-xcbgen_1.14.1-1_all.deb
 
 	#Instalación de polybar
 	echo -e "\n${yellowColour}[*]${endColour}${grayColour} Instalando polybar ...${endColour}"

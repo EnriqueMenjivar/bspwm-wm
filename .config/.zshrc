@@ -14,6 +14,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/s
 alias ls='lsd --group-dirs=first'
 alias cat='/usr/bin/bat --paging=never'
 alias less='/usr/bin/bat'
+alias vim='/usr/bin/nvim'
 
 # History configuration
 HISTSIZE=1000
@@ -81,6 +82,7 @@ funciton update_bspwm_files(){
 	cp -r ~/.config/picom $repo_path
 	cp -r ~/.config/polybar/ $repo_path
 	cp -r ~/.config/sxhkd $repo_path
+	cp -r ~/.fonts/* ~/Documents/github/linux/bspwm-wm/fonts
 	cp ~/.zshrc $repo_path
 	cp ~/.p10k.zsh $repo_path
 	echo "[*] Hecho"
@@ -90,6 +92,7 @@ funciton update_bspwm_files(){
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+#Configuración para el funcionamiento de algunas teclas/atajos en zsh - arch linux
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
@@ -106,6 +109,8 @@ key[Right]="${terminfo[kcuf1]}"
 key[PageUp]="${terminfo[kpp]}"
 key[PageDown]="${terminfo[knp]}"
 key[Shift-Tab]="${terminfo[kcbt]}"
+key[Control-Left]="${terminfo[kLFT5]}"
+key[Control-Right]="${terminfo[kRIT5]}"
 
 # setup key accordingly
 [[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"      beginning-of-line
@@ -120,6 +125,11 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"    beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"  end-of-buffer-or-history
 [[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}" reverse-menu-complete
+[[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
+[[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
+
+bindkey "5C" forward-word
+bindkey "5D" backward-word
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.

@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -theme Arc-Dark -font "Hack Nerd Font Mono 12" -show run
+  rofi -show run -theme ~/.config/polybar/scripts/rofi/rofi-launcher.rasi &
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -129,7 +129,6 @@ super + ctrl + {Left,Down,Up,Right}
 ctrl + alt + {Left,Down,Up,Right}
 	/home/enrique/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
-
 #Brave
 super + b
 	brave
@@ -144,7 +143,7 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	amixer set Master 5%+
 XF86AudioMute
-    amixer set Master toggle
+  amixer set Master toggle
 
 #Brightness control
 XF86MonBrightnessDown
@@ -164,12 +163,11 @@ alt + {_,shift + }F4
 
 # view open windows
 super + w
-	/home/enrique/.config/bspwm/scripts/change_windows.sh &
-#	/home/enrique/.config/polybar/scripts/windows &
+	rofi -show window -theme ~/.config/polybar/scripts/rofi/change_windows.rasi &
 
 # menu
 super + l
-	/home/enrique/.config/polybar/scripts/launcher &
+  rofi -show drun -theme ~/.config/polybar/scripts/rofi/rofi-launcher.rasi &
 
 # take custom screenshot
 Print
@@ -177,7 +175,7 @@ Print
 
 # take full screenshot
 shift + Print
-	flameshot full -p ~/Pictures/screenshots &
+	flameshot full -c -p ~/Pictures/screenshots &
 
 # switch keyboard
 ctrl + alt + k
@@ -200,7 +198,7 @@ super + shift + u
 
 # Power menu
 ctrl + alt + Delete
-	/home/enrique/.config/polybar/scripts/powermenu-alt &
+	/home/enrique/.config/polybar/scripts/rofi/powermenu.sh &
 
 # Rotate window
 super + {_,shift + }r

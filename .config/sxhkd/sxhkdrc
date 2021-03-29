@@ -190,11 +190,11 @@ super + shift + u
   bspc node {,$(bspc query -N -n .hidden.local | tail -n1)} -g hidden=off -f
 
 # Suspend
-#XF86Sleep
-#	systemctl suspend && i3lock-fancy
+XF86Sleep
+	systemctl suspend && i3lock-fancy
 
-#super + F3
-#	systemctl suspend && i3lock-fancy
+super + F3
+	i3lock-fancy && systemctl suspend
 
 # Power menu
 ctrl + alt + Delete

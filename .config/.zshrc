@@ -15,7 +15,7 @@ alias ls='lsd --group-dirs=first'
 alias cat='/usr/bin/bat --paging=never'
 alias less='/usr/bin/bat'
 alias vim='/usr/bin/nvim'
-alias vi='/usr/bin/nvim'
+#alias vi='/usr/bin/nvim'
 alias copy='xclip -selection clipboard'
 
 # History configuration
@@ -152,3 +152,8 @@ export PATH="$PATH:/home/enrique/flutter/bin"
 ANDROID_HOME="$PATH:/home/enrique/Android/Sdk"
 export PATH="$PATH:/home/enrique/Android/Sdk/platform-tools"
 
+# Tell FZF to use ripgrep
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 100% --border'
+fi

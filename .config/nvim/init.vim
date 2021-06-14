@@ -100,6 +100,7 @@ let g:mapleader = ' '  " Definir espacio como la tecla líder
 nnoremap <leader>w :w<CR>  " Guardar con <líder> + w
 nnoremap <leader>e :e $MYVIMRC<CR>  " Abrir el archivo init.vim con <líder> + e
 nnoremap <leader><F4> :q<CR>  " Cerrar el editor
+nnoremap <leader><Esc> :noh<CR> " Quitar la seleccion producto de haber realizado una busqueda
 
 " Copy/Paste to/from clipboard
 nnoremap <leader>y "+y

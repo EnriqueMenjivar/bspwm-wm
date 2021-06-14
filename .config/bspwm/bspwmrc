@@ -29,7 +29,7 @@ bspc rule -a vokoscreenNG state=floating follow=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill /home/enrique/Pictures/Linux-wallpaper/Arch-linux/Arch-linux.jpg &
+feh --bg-fill /home/enrique/Pictures/wallpapers/Linux/Arch-linux/Arch-linux.jpg &
 
 #----------------------------------------------------------------------
 #CUSTOM
@@ -55,6 +55,9 @@ setxkbmap -layout us -variant altgr-intl &
 
 #Iniciar los servicios de dunst
 systemctl start --user dunst.service
+
+#Poner el brillo a  cero al iniciar
+xbacklight -set 0
 
 #setxkbmap -option grp:alt_shift_toggle us,es &
 #alsactl restore

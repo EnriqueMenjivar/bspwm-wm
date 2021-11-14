@@ -16,7 +16,7 @@
 ![](screenshots/dolphin.png)
 
 **Dolphin & nvim**
-![](screenshots/dolphin_&_nano.png)
+![](screenshots/dolphin_&_nvim.png)
 
 **fuzzy finder**
 ![](screenshots/fzf_v.png)

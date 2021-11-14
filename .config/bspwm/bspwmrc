@@ -1,8 +1,9 @@
 #! /bin/sh
 
+killall -q sxhkd
 sxhkd &
+
 ~/.config/polybar/launch.sh &
-picom --config /home/enrique/.config/picom/picom.conf &
 
 bspc config pointer_modifier mod1
 
@@ -19,17 +20,16 @@ bspc config active_border_color	    \#bf00f6
 bspc config normal_border_color	    \#00DCF6
 bspc config presel_feedback_color   \#bf00f6
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
 #bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
 bspc rule -a MEGAsync state=floating follow=on
 bspc rule -a Java state=floating follow=on
-bspc rule -a org-apache-jmeter-NewDriver state=floating follow=on
-bspc rule -a vokoscreenNG state=floating follow=on
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+bspc rule -a jetbrains-idea state=floating follow=on
+#bspc rule -a vokoscreenNG state=floating follow=on
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
 
-feh --bg-fill /home/enrique/Pictures/wallpapers/Linux/Arch-linux/Arch-linux.jpg &
+feh --bg-fill /home/enrique/Pictures/wallpapers/BB/721305.jpg &
+#feh --bg-fill /home/enrique/Pictures/wallpapers/Linux/Arch-linux/Arch-linux.jpg &
 
 #----------------------------------------------------------------------
 #CUSTOM
@@ -38,13 +38,15 @@ feh --bg-fill /home/enrique/Pictures/wallpapers/Linux/Arch-linux/Arch-linux.jpg 
 #Solucionar problemas con aplicaciones Java
 #wmname LG3D &
 
-#Evitar que el puntero se ponga en forma de x
+#Tema del cursor
 xsetroot -cursor_name left_ptr &
 
 #Iniciar redshift
+killall -q redshift
 redshift -P -O 4500 &
 
 #Iniciar mega
+killall -q megasync
 megasync &
 
 #Activar el numpad para usar las flechas y subfunciones
@@ -54,10 +56,11 @@ setxkbmap -option "numpad:microsoft"
 setxkbmap -layout us -variant altgr-intl &
 
 #Iniciar los servicios de dunst
-systemctl start --user dunst.service
-
-#Poner el brillo a  cero al iniciar
-xbacklight -set 0
+#systemctl start --user dunst.service
 
 #setxkbmap -option grp:alt_shift_toggle us,es &
 #alsactl restore
+
+killall -q picom
+picom --experimental-backends &
+#picom --config /home/enrique/.config/picom/picom.conf &

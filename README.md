@@ -15,12 +15,11 @@
 **Dolphin**
 ![](screenshots/dolphin.png)
 
-**Dolphin & nano**
+**Dolphin & nvim**
 ![](screenshots/dolphin_&_nano.png)
 
 **fuzzy finder**
 ![](screenshots/fzf_v.png)
-![](screenshots/fzf_h.png)
 
 **rofi application finder**
 ![](screenshots/rofi_application_finder.png)

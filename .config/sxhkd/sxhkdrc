@@ -153,9 +153,9 @@ XF86MonBrightnessUp
 
 # focus the next/previous tiled node in the current desktop
 alt + {_,shift + }Tab
-	bspc node -f {next,prev}.local.tiled
+  bspc node -f {next,prev}.local.tiled
 #	/home/enrique/.config/bspwm/scripts/change_windows.sh &
-#	bspc node -f {next,prev}.local
+#  bspc node -f {next,prev}.local
 	
 # close and kill
 alt + {_,shift + }F4
@@ -217,12 +217,15 @@ super + {plus,minus}
 
 # Change inactive node opacity
 super + shift + {KP_Add,KP_Subtract}
-        /home/enrique/.config/bspwm/scripts/inactive_opacity.sh {+,-}
+  /home/enrique/.config/bspwm/scripts/inactive_opacity.sh {+,-}
 
 super + shift + {plus,minus}
-        /home/enrique/.config/bspwm/scripts/inactive_opacity.sh {+,-}
+  /home/enrique/.config/bspwm/scripts/inactive_opacity.sh {+,-}
 
 # Find cursor (button3 = right clic)
 ctrl + button3
 	find-cursor --size 300 --distance 40 --wait 400 --line-width 2 --color black
 
+# Mute/Unmute microhpone
+XF86AudioMicMute
+  notify-send "Microphone state" "$(amixer set Capture toggle | grep '%')" -u low

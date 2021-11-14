@@ -19,8 +19,8 @@ alias vim='/usr/bin/nvim'
 alias copy='xclip -selection clipboard'
 
 # History configuration
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=2000
+SAVEHIST=2000
 HISTFILE=~/.zsh_history
 HISTTIMEFORMAT="[%F %T] "
 #HISTDUP=erase               #Erase duplicates in the history file
@@ -149,8 +149,18 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$PATH:/home/enrique/flutter/bin"
-ANDROID_HOME="$PATH:/home/enrique/Android/Sdk"
-export PATH="$PATH:/home/enrique/Android/Sdk/platform-tools"
+
+# Android
+#export ANDROID=$HOME/Android
+#export PATH=$ANDROID/tools:$PATH
+#export PATH=$ANDROID/tools/bin:$PATH
+#export PATH=$ANDROID/platform-tools:$PATH
+## Android SDK
+#export ANDROID_SDK=$HOME/ANDROID
+#export PATH=$ANDROID_SDK:$PATH
+
+ANDROID_HOME="$PATH:/home/enrique/Android"
+export PATH="$PATH:/home/enrique/Android/platform-tools"
 
 # Tell FZF to use ripgrep
 if type rg &> /dev/null; then

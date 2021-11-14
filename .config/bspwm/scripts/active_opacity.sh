@@ -14,10 +14,10 @@ fi
 
 case $1 in
     +)
-        active=$(python -c "print ($active_opacity+0.05)")
+      active=$(python -c "print (round($active_opacity+0.05,2))")
         sed -i "/^active-opacity/c\active-opacity = $active;" $picom_path;;
     -)
-        active=$(python -c "print ($active_opacity-0.05)")
+      active=$(python -c "print (round($active_opacity-0.05,2))")
         sed -i "/^active-opacity/c\active-opacity = $active;" $picom_path;;
     *) exit 0;;
 esac

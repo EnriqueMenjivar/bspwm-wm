@@ -78,18 +78,20 @@ function mkc(){
 
 #Actualizar cambios en los archivos de configuración de bspwm
 funciton update_dotfiles(){
-	repo_path=~/Documents/github/linux/bspwm-wm/.config/
-	cp -r ~/.config/alacritty/ $repo_path
+	repo_path=~/Documents/github/linux/bspwm-wm/.config
+  rm -rf $repo_path/*
+	cp -r ~/.config/alacritty $repo_path
 	cp -r ~/.config/bspwm $repo_path
 	cp -r ~/.config/picom $repo_path
-	cp -r ~/.config/polybar/ $repo_path
+	cp -r ~/.config/polybar $repo_path
 	cp -r ~/.config/sxhkd $repo_path
 	cp -r ~/.config/nvim $repo_path
 	cp -r ~/.config/dunst $repo_path
-	cp -r ~/.fonts/* ~/Documents/github/linux/bspwm-wm/fonts
+	cp -r ~/.config/rofi $repo_path
+	cp -r ~/.fonts/* $repo_path/../fonts
 	cp ~/.zshrc $repo_path
 	cp ~/.p10k.zsh $repo_path
-	echo "[*] Hecho"
+	echo "[*] Done"
 }
 
 #Plugins

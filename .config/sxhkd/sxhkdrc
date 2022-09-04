@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-  rofi -show run -theme ~/.config/polybar/scripts/rofi/rofi-launcher.rasi &
+  rofi -show run -theme ~/.config/rofi/launchers/type-3/style-5.rasi &
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -163,11 +163,11 @@ alt + {_,shift + }F4
 
 # view open windows
 super + w
-	rofi -show window -theme ~/.config/polybar/scripts/rofi/change_windows.rasi &
+	rofi -show window -theme ~/.config/rofi/launchers/type-3/style-4.rasi &
 
 # menu
 super + l
-  rofi -show drun -theme ~/.config/polybar/scripts/rofi/rofi-launcher.rasi &
+  rofi -show drun -theme ~/.config/rofi/launchers/type-3/style-1.rasi &
 
 # take custom screenshot
 Print
@@ -198,7 +198,7 @@ super + F3
 
 # Power menu
 ctrl + alt + Delete
-	/home/enrique/.config/polybar/scripts/rofi/powermenu.sh &
+	~/.config/polybar/scripts/power_menu.sh &
 
 # Rotate window
 super + {_,shift + }r
@@ -229,3 +229,7 @@ ctrl + button3
 # Mute/Unmute microhpone
 XF86AudioMicMute
   notify-send "Microphone state" "$(amixer set Capture toggle | grep '%')" -u low
+
+# Close dunst notification
+ctrl + {_,shift + }space
+  dunstctl {close,close-all}

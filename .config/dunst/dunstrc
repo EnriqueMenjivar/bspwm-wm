@@ -28,13 +28,7 @@ browser = /usr/bin/firefox -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
-icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
-
-[shortcuts]
-close = ctrl+space
-close_all = ctrl+shift+space
-;history = ctrl+grave
-context = ctrl+shift+period
+;icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
 
 [urgency_low]
 timeout = 4

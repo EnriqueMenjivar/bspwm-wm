@@ -36,7 +36,7 @@ feh --bg-fill /home/enrique/Pictures/wallpapers/BB/721305.jpg &
 #----------------------------------------------------------------------
 
 #Solucionar problemas con aplicaciones Java
-#wmname LG3D &
+wmname LG3D &
 
 #Tema del cursor
 xsetroot -cursor_name left_ptr &

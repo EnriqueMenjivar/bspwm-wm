@@ -23,8 +23,8 @@ bspc config presel_feedback_color   \#bf00f6
 #bspc rule -a Chromium desktop='^2'
 bspc rule -a MEGAsync state=floating follow=on
 bspc rule -a Java state=floating follow=on
-bspc rule -a jetbrains-idea state=floating follow=on
-#bspc rule -a vokoscreenNG state=floating follow=on
+bspc rule -a jetbrains-idea-ce state=floating follow=on
+bspc rule -a Blueman-manager state=floating follow=on
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
@@ -62,5 +62,5 @@ setxkbmap -layout us -variant altgr-intl &
 #alsactl restore
 
 killall -q picom
-picom --experimental-backends &
-#picom --config /home/enrique/.config/picom/picom.conf &
+#picom &
+picom --config /home/enrique/.config/picom/picom.conf &

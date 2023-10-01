@@ -233,3 +233,7 @@ XF86AudioMicMute
 # Close dunst notification
 ctrl + {_,shift + }space
   dunstctl {close,close-all}
+
+# Connect/Disconnect bluetooth headsets
+super + ctrl + {_,shift + }p
+  bluetoothctl {connect,disconnect} 60:C5:E6:D5:AD:8D
